@@ -1,4 +1,4 @@
-streamlit==1.32.0
-numpy
-pillow
-joblib
+streamlit==1.33.0
+numpy==2.0.2
+pillow==11.1.0
+joblib==1.4.2
