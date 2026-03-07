@@ -12,14 +12,11 @@ def show_scanner():
 
     # Load Model and Encoder
     model, label_encoder = load_model_and_encoder()
-
-    if model is None:
+    
+    if model is None or label_encoder is None:
         st.warning("⚠️ Model files (`grocery_model.h5`, `label_encoder.pkl`) not found in the `model/` directory.")
         st.info("Please ensure your trained model and label encoder are uploaded to continue.")
         return
-    elif model == "demo":
-        st.info("🔧 **Demo Mode**: TensorFlow not available. Showing sample predictions.")
-        label_encoder = None  # Not needed for demo mode
 
     # Upload Section
     st.markdown("---")
