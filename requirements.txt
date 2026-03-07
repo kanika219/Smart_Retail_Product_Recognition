@@ -5,4 +5,4 @@ pandas
 joblib
 plotly
 opencv-python-headless
-tensorflow-cpu
+tflite-runtime
