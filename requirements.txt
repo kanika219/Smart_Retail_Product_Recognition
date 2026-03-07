@@ -1,8 +1,8 @@
+streamlit
+numpy
 pillow
+pandas
+plotly
 opencv-python-headless
-streamlit>=1.24
-pandas>=1.5
-numpy>=1.25
-plotly>=5.0
-joblib>=1.2
-
+joblib
+tflite-runtime
