@@ -2,3 +2,6 @@ streamlit
 numpy
 pillow
 joblib
+pandas
+plotly
+opencv-python-headless
