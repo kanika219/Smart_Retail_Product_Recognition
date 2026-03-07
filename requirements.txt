@@ -5,4 +5,3 @@ pandas
 plotly
 opencv-python-headless
 joblib
-tflite-runtime
