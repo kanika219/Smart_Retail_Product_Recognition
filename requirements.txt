@@ -1,8 +1,9 @@
-streamlit
-numpy
 pillow
-pandas
-joblib
-plotly
 opencv-python-headless
-tflite-runtime
+streamlit>=1.24
+pandas>=1.5
+numpy>=1.25
+plotly>=5.0
+joblib>=1.2
+tensorflow-cpu>=2.13.0
+keras>=2.13.0
