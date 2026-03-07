@@ -1,7 +1,8 @@
 streamlit
 numpy
 pillow
-joblib
 pandas
+joblib
 plotly
 opencv-python-headless
+tensorflow-cpu
