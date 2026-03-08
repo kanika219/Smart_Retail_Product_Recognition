@@ -10,8 +10,10 @@ def load_model_and_encoder():
     Load ONNX model and label encoder.
     Uses st.cache_resource to prevent repeated loading.
     """
-    model_path = "model/grocery_model.onnx"
-    encoder_path = "model/label_encoder.pkl"
+    # Use absolute path to avoid directory issues in different environments
+    base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    model_path = os.path.join(base_path, "model", "grocery_model.onnx")
+    encoder_path = os.path.join(base_path, "model", "label_encoder.pkl")
 
     if not os.path.exists(model_path) or not os.path.exists(encoder_path):
         return None, None
