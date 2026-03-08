@@ -2,6 +2,8 @@
 
 RetailVision AI is a production-style computer vision platform for grocery stores. It helps store managers and operations teams to monitor product categories, detect shelf inventory patterns, and support inventory decisions.
 
+**Dashboard Link** : https://smart-retail-items-recognition-app.streamlit.app/
+
 ## Features
 - **Overview**: Executive dashboard with high-level KPIs.
 - **Product Scanner**: Core feature for identifying products from images using AI.
