@@ -1,36 +1,30 @@
-import tensorflow as tf
-import tf2onnx
-import onnx
 import os
+import subprocess
 
-def convert_h5_to_onnx(h5_path, onnx_path):
+def convert_to_onnx_cli(model_path, onnx_path):
     """
-    Utility script to convert a Keras .h5 model to ONNX format.
-    Run this locally where TensorFlow is installed.
+    Convert model using tf2onnx CLI.
     """
-    if not os.path.exists(h5_path):
-        print(f"Error: {h5_path} not found.")
-        return
-
-    print(f"Loading Keras model from {h5_path}...")
-    model = tf.keras.models.load_model(h5_path)
-
-    print("Converting to ONNX...")
-    spec = (tf.TensorSpec((None, 224, 224, 3), tf.float32, name="input"),)
+    print(f"Converting {model_path} to {onnx_path} using CLI...")
     
-    model_proto, _ = tf2onnx.convert.from_keras(model, input_signature=spec, opset=13)
-    
-    with open(onnx_path, "wb") as f:
-        f.write(model_proto.SerializeToString())
-    
-    print(f"✓ Model successfully converted and saved to {onnx_path}")
+    # Simpler command construction
+    if os.path.exists(model_path):
+        cmd = f"python -m tf2onnx.convert --keras \"{model_path}\" --output \"{onnx_path}\" --opset 13"
+        print(f"Running: {cmd}")
+        result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+        
+        if result.returncode == 0:
+            print(f"Successfully converted to {onnx_path}")
+        else:
+            print("Conversion failed!")
+            print(result.stderr)
+            print(result.stdout)
+    else:
+        print(f"Source {model_path} not found.")
 
 if __name__ == "__main__":
-    # Ensure the model directory exists
-    os.makedirs("model", exist_ok=True)
-    
-    # Try to convert .h5 if it exists
-    h5_file = "model/grocery_model.h5"
+    # We'll use the .keras file created by create_model.py
+    keras_file = "model/grocery_model.keras"
     onnx_file = "model/grocery_model.onnx"
     
-    convert_h5_to_onnx(h5_file, onnx_file)
+    convert_to_onnx_cli(keras_file, onnx_file)
