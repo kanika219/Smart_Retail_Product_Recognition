@@ -14,7 +14,7 @@ def show_scanner():
     model, label_encoder = load_model_and_encoder()
     
     if model is None or label_encoder is None:
-        st.warning("⚠️ Model files (`grocery_model.h5`, `label_encoder.pkl`) not found in the `model/` directory.")
+        st.warning("⚠️ Model files (`grocery_model.onnx`, `label_encoder.pkl`) not found in the `model/` directory.")
         st.info("Please ensure your trained model and label encoder are uploaded to continue.")
         return
 

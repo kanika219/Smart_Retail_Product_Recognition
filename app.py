@@ -48,20 +48,20 @@ elif navigation == "System Info":
 
     ### AI Model Architecture
     - **Backbone**: CNN Classifier
-    - **Training Framework**: TensorFlow/Keras
+    - **Runtime Framework**: ONNX Runtime
     - **Target Input Size**: 224x224 pixels
     - **Normalization**: Standard [0, 1] range
 
     ### Dataset Information
-    The model is trained on the **Grocery Store Dataset**, featuring natural images of various 
+    The model is trained locally using TensorFlow on the **Grocery Store Dataset**, featuring natural images of various 
     grocery products including fruits, vegetables, and packaged goods.
 
     ### Technology Stack
     - **UI Framework**: Streamlit
-    - **Inference**: TensorFlow
+    - **Inference**: ONNX Runtime
     - **Image Processing**: OpenCV, Pillow
     - **Data Analytics**: Pandas, Plotly
-    - **Model Serialization**: Joblib
+    - **Model Serialization**: Joblib, ONNX
 
     ### Business Value
     By automating product identification, RetailVision AI helps reduce human error in shelf 
